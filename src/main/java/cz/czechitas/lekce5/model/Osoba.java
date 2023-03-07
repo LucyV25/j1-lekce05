@@ -9,6 +9,13 @@ public class Osoba {
 
     private Telefon telefon;
 
+    private Adresa adresa;
+
+    private String pracovniEmail;
+
+    private String soukromyEmail;
+    private boolean zena=true;
+
     public void setJmeno(String jmeno) {
         Objects.requireNonNull(jmeno);
         if (jmeno.isBlank()) {
@@ -57,8 +64,65 @@ public class Osoba {
     }
 
     public void setTelefon(Telefon telefon) {
+
         this.telefon = telefon;
     }
+
+    public String getPracovniEmail() {
+        return pracovniEmail;
+    }
+
+    public void setPracovniEmail(String pracovniEmail) {
+
+        Objects.requireNonNull(pracovniEmail);
+        if (pracovniEmail.isBlank()) {
+            System.err.println("Pracovní email nemůže být prázdný.");
+            return;
+        }
+        if (!pracovniEmail.contains("@")) {
+            System.err.println("Email musí obsahovat @.");
+            return;
+        }
+        this.pracovniEmail = pracovniEmail;
+    }
+
+    public String getSoukromyEmail() {
+        return soukromyEmail;
+    }
+
+    public void setSoukromyEmail(String soukromyEmail) {
+        Objects.requireNonNull(soukromyEmail);
+        if (soukromyEmail.isBlank()) {
+            System.err.println("Soukromý email nemůže být prázdný.");
+            return;
+        }
+        if (!soukromyEmail.contains("@")) {
+            System.err.println("Email musí obsahovat @.");
+            return;
+        }
+        this.soukromyEmail = soukromyEmail;
+    }
+
+    public Adresa getAdresa() {
+        return adresa;
+    }
+
+    public void setAdresa(Adresa adresa) {
+        this.adresa = adresa;
+    }
+
+    public boolean isZena() {
+        return zena;
+    }
+
+    public void setZena(boolean zena) {
+        this.zena = zena;
+    }
+
+    public String getKontakty(){
+        return "pracovni email: "+pracovniEmail+", soukromy email: "+soukromyEmail;
+    }
+
 
     public String toString() {
         return jmeno + " " + prijmeni + " (" + rodneCislo + ")";

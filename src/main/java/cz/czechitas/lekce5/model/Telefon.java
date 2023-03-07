@@ -24,6 +24,15 @@ public class Telefon {
             System.err.println("Telefonní číslo musí být vyplněno.");
             return;
         }
+        if (telefonniCislo.length()!=9) {
+            System.err.println("psc musí obsahovat 9 znaků.");
+            return;
+        }
         this.telefonniCislo = telefonniCislo;
+    }
+
+    @Override
+    public String toString() {
+        return predcisli+" "+ telefonniCislo;
     }
 }
